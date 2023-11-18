@@ -1,5 +1,11 @@
 <?php
-require("PHPMailerAutoload.php");
+require('PHPMailer.php');
+require('SMTP.php');
+require('Exception.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 
 function mailsend($email,$body,$subject,$project,$filenames=NULL)
@@ -10,12 +16,13 @@ function mailsend($email,$body,$subject,$project,$filenames=NULL)
 	$mail->CharSet = 'UTF-8';
 	$mail->Host = "smtp.hostinger.in";  					// specify main and backup server
 	$mail->SMTPAuth = true;    	 							// turn on SMTP authentication
-	$mail->Username = "admin@raindetails.in";  	// SMTP username
-	$mail->Password = "Admin@Rain";						// SMTP password
-	$mail->Port = 587;
-	$mail->From = "admin@raindetails.in";
-	$mail->FromName = $project . ' '. 'जिल्हा आपत्ती व्यवस्थापन प्राधिकरण';
-	$mail->addReplyTo("admin@raindetails.in");	
+	$mail->Username = "no-reply@svlautomations.in";  	// SMTP username
+	$mail->Password = "password";						// SMTP password
+	$mail->SMTPSecure = 'ssl';                              //Enable implicit TLS encryption
+	$mail->Port       = 465;	
+	$mail->From = "no-reply@svlautomations.in";
+	$mail->FromName = $project ;
+	$mail->addReplyTo("info@svlautomations.in");	
 	foreach($email as $e)
 	{
 		$mail->AddAddress($e);
