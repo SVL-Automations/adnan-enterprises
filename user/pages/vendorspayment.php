@@ -285,6 +285,16 @@ if (isset($_POST['delete'])) {
     <!-- Select2 -->
     <script src="../../bower_components/select2/dist/js/select2.full.min.js"></script>
 
+    <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/dataTables.buttons.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/jszip.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/pdfmake.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/vfs_fonts.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/buttons.html5.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/buttons.print.min.js"></script>
+    <script src="../../bower_components/datatables.net-bs/js/buttons.colVis.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('.sidebar-menu').tree()
@@ -337,6 +347,48 @@ if (isset($_POST['delete'])) {
 
 
                         $('#example1').DataTable({
+                            dom: 'Bfrtip',                            
+                            buttons: [{
+                                    extend: 'copy',
+                                    className: ' btn btn-success',
+                                    exportOptions: {
+                                        columns: ':visible'
+                                    }
+                                },                                
+                                {
+                                    extend: 'csv',
+                                    className: ' btn bg-maroon',
+                                    exportOptions: {
+                                        columns: ':visible'
+                                    }
+                                },
+                                {
+                                    extend: 'excel',
+                                    className: ' btn bg-purple',
+                                    exportOptions: {
+                                        columns: ':visible'
+                                    }
+                                },
+                                {
+                                    extend: 'pdf',
+                                    className: ' btn bg-navy',
+                                    exportOptions: {
+                                        columns: ':visible'
+                                    }
+                                },
+                                {
+                                    extend: 'print',
+                                    className: ' btn bg-olive',
+                                    exportOptions: {
+                                        columns: ':visible'
+                                    }
+                                },
+                                {
+                                    extend: 'colvis',
+                                    columns: ' :not(.noVis)',
+                                    className: ' btn btn-warning '
+                                }
+                            ],
                             stateSave: true,
                             destroy: true,
                         });

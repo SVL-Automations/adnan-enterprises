@@ -1,9 +1,9 @@
 <?php
    						
     define ('hostnameorservername',"localhost");	 // Server Name or host Name 
-    define ('serverusername','u910794608_adnan'); // database Username 
-    define ('serverpassword','Adnan@135'); // database Password 
-    define ('databasename','u910794608_adnan'); // database Name 
+    define ('serverusername','root'); // database Username 
+    define ('serverpassword',''); // database Password 
+    define ('databasename','adnan'); // database Name 
 
     
     $project = "Adnan Enterprises";
