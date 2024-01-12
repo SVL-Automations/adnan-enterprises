@@ -228,10 +228,10 @@ if (isset($_POST['id'])) {
     <div id="invoice">
 
         <div class="toolbar hidden-print">
-            <!-- <div class="text-right">
+            <div class="text-right">
                 <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
                 <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
-            </div> -->
+            </div>
             <hr>
         </div>
         <div class="invoice overflow-auto">
