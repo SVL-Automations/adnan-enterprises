@@ -57,12 +57,13 @@ if (isset($_POST['Edit'])) {
     $editaddress = mysqli_real_escape_string($connection, $_POST['editaddress']);
     $editdetails = mysqli_real_escape_string($connection, $_POST['editdetails']);
     $editemail = mysqli_real_escape_string($connection, $_POST['editemail']);
-    $editmobile = mysqli_real_escape_string($connection, $_POST['editmobile']);    
+    $editmobile = mysqli_real_escape_string($connection, $_POST['editmobile']);
+    $editpending = mysqli_real_escape_string($connection, $_POST['editpending']);    
     $id = mysqli_real_escape_string($connection, trim(strip_tags($_POST['id'])));
 
 
     $updaterain = mysqli_query($connection, "UPDATE `customer` SET 
-                                            `name`= '$editname', `address`='$editaddress', 
+                                            `name`= '$editname', `address`='$editaddress', `pending`= '$editpending',
                                             `email`='$editemail', `mobile`='$editmobile', `details`='$editdetails'
                                             WHERE id = '$id'
                                         ");
@@ -172,7 +173,8 @@ if (isset($_POST['Edit'])) {
                                             <th class='text-center'>Email </th>
                                             <th class='text-center'>Mobile </th>
                                             <th class='text-center'>Details </th>
-                                            <th class='text-center'>Pending </th>
+                                            <th class='text-center'>Last Pending </th>
+                                            <th class='text-center'>Total Pending </th>
                                             <th class='text-center'>Status </th>
                                             <th class='text-center'>Update</th>
                                         </tr>
@@ -188,7 +190,8 @@ if (isset($_POST['Edit'])) {
                                             <th class='text-center'>Email </th>
                                             <th class='text-center'>Mobile </th>
                                             <th class='text-center'>Details </th>
-                                            <th class='text-center'>Pending </th>
+                                            <th class='text-center'>Last Pending </th>
+                                            <th class='text-center'>Total Pending </th>
                                             <th class='text-center'>Status </th>
                                             <th class='text-center'>Update</th>
                                         </tr>
@@ -307,6 +310,10 @@ if (isset($_POST['Edit'])) {
                                 <textarea class="form-control" rows="3" placeholder="Details" name="editdetails" id='editdetails' ></textarea>
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Pending amount</label>
+                                <input type="number" class="form-control" placeholder="Pending amount" name="editpending" id="editpending" required pattern="[0-9]+" value="0">
+                            </div>
                            
                         </div>
                         <div class="modal-footer ">
@@ -392,6 +399,7 @@ if (isset($_POST['Edit'])) {
                                 '<td class="text-center">' + value.email + '</td>' +
                                 '<td class="text-center">' + value.mobile + '</td>' +
                                 '<td class="text-center">' + value.details + '</td>' +
+                                '<td class="text-center">' + parseFloat(parseFloat(value.pending)).toLocaleString('en-IN') + "/-" + '</td>' +
                                 '<td class="text-center">' + parseFloat(parseFloat(value.salesTotal) + parseFloat(value.pending) - parseFloat(value.receivedTotal)).toLocaleString('en-IN') + "/-" + '</td>' +
                                 '<td class="text-center">' + value.status + '</td>' +
                                 '<td class="text-center">' + button1 + '</td>' +
@@ -459,6 +467,7 @@ if (isset($_POST['Edit'])) {
                 $(".modal-body #editname").attr("value", $(this).data('name'));
                 $(".modal-body #editemail").attr("value", $(this).data('email'));
                 $(".modal-body #editmobile").attr("value", $(this).data('mobile'));
+                $(".modal-body #editpending").attr("value", $(this).data('pending'));
                 $(".modal-body #editdetails").val($(this).data('details'));
                 $(".modal-body #editaddress").val($(this).data('address'));
                 $("#editid").val($(this).data('editid'));
