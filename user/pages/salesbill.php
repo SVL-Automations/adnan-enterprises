@@ -245,10 +245,10 @@ if (isset($_POST['customerid'])) {
     <div id="invoice">
 
         <div class="toolbar hidden-print">
-            <!-- <div class="text-right">
+            <div class="text-right">
                 <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
                 <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
-            </div> -->
+            </div>
             <hr>
         </div>
         <div class="invoice overflow-auto">
@@ -308,16 +308,11 @@ if (isset($_POST['customerid'])) {
                             </tr>
                         </thead>
                         <tbody id="salesdetails">
-                            <tr>
-
-                            </tr>
+                            
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="2" style="padding-top:90px  !important; "></td>
-                                <td colspan="2"></td>
-                                <td></td>
-                            </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tfoot>                           
                             <tr>
                                 <td colspan="2" rowspan="4" style="text-align: left !important; font-size:20px; border-style: dotted; border-width: 0.8px;">
                                     <div>Bank Details:</div>

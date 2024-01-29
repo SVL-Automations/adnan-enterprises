@@ -292,9 +292,7 @@ if (isset($_POST['customerid'])) {
                             </tr>
                         </thead>
                         <tbody id="salesdetails">
-                            <tr>
-
-                            </tr>
+                            
                         </tbody>                        
                     </table>                    
                 </main>
